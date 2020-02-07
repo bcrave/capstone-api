@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 const PORT = process.env.PORT || 4000;
-const photoRoutes = require("./routes/photo-routes");
+const blogEntryRoutes = require("./routes/blog-entry-routes");
 
 mongoose.Promise = global.Promise;
 
@@ -27,7 +27,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use("/", photoRoutes);
+app.use("/", blogEntryRoutes);
 
 app.listen(PORT, () => {
   console.log(`server is up and at em, on port: ${PORT}`);
